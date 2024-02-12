@@ -8,12 +8,22 @@ ssl._create_default_https_context = ssl._create_unverified_context
 app = Flask(__name__)
 
 @app.route('/')
-def get_list_characters_page():
-  url = "https://rickandmortyapi.com/api/character"
+def get_list_elements_page():
+    url = "https://rickandmortyapi.com/api/character/"
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    dict = json.loads(data)
+    
+    return render_template("characters.html", characters=dict['results'])
+
+@app.route('/profile/<id>')
+def get_profile(id):
+  url = "https://rickandmortyapi.com/api/character" + id
   response = urllib.request.urlopen(url)
   data = response.read()
   dict = json.loads(data)
-  return render_template("characters.html", characters=dict["results"])
+
+  return render_template("profile.html", profile=dict)
 
 # rota e função
 @app.route('/lista')
@@ -23,12 +33,13 @@ def get_list_elements():
   characters = response.read()
   dict = json.loads(characters)
 
-  characters = []
+  characters_list = []
 
   for character in dict["results"]:
-    character = {
+    character_data = {
       "name": character["name"],
       "status": character["status"]
     }
-    characters.append(character)
-  return {"characters": characters}
+    characters_list.append(character_data)
+
+  return {"characters": characters_list}
