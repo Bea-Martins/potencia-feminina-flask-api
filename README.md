@@ -66,9 +66,12 @@ Ele é ideal para quem busca: simplicidade, rapidez, soluções para projetos pe
 o Flask é baseado no kit de ferramentas WSGI (Web Server Gateway Interface) e na biblioteca Jinja2.
 WSGI é uma especificação para uma interface simples e universal entre servidores web e aplicações web ou frameworks escritos em Python. O WSGI é uma camada intermediária que fica entre o servidor web e a sua aplicação Python.
 
-Etapas para criação da primeira aplicação Flask:<br>
-1- criar um ambiente virtual (py -3 -m venv .venv)
-2- entrar no ambiente virtual (.\.venv\Scripts\activate)
-3- instalar o Flask (pip install flask)
-4- desenvolve aplicação
-5- testa (flask --app app run)
+Etapas para criação da primeira aplicação Flask:
+1. criar um ambiente virtual (py -3 -m venv .venv)
+2. entrar no ambiente virtual (.\.venv\Scripts\activate)
+3. instalar o Flask (pip install flask)
+4. desenvolve aplicação
+5. testa (flask --app app run)
+
+Sobre a aplicação:<br>
+Esse código faz uma solicitação à API “Rick and Morty”, obtém informações sobre os personagens e as exibe em uma página HTML chamada “characters.html”. Essa página será acessada quando alguém visitar a raiz do site.
